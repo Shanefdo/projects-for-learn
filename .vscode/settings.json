@@ -1,0 +1,4 @@
+{
+    "playwright.reuseBrowser": false,
+    "playwright.showTrace": false
+}
