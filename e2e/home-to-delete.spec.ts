@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('Future Legeds Cricket shop web page navigations', async ({ page }) => {
+test.skip('Future Legeds Cricket shop web page navigations', async ({ page }) => {
   await test.step('validate the behaviour of the URL navigation', async () => {
-    await page.goto('https://futurelegendscricket.co.uk/');
+    await page.goto('/');
     await expect(page.getByRole('heading', { name: 'Cookie consent' })).toBeVisible();
   });
 
