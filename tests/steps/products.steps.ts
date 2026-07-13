@@ -8,10 +8,20 @@ export class ProductsSteps {
     this.productsPage = new ProductsPage(page);
   }
 
+  /**
+   * Navigates to the products page
+   * @returns {Promise<void>}
+   * @memberof ProductsSteps
+   */
   async navigateToTheProductsPage() {
     await this.productsPage.productsPageNavigation.click();
   }
 
+  /**
+   * Validates the products page navigation
+   * @returns {Promise<void>}
+   * @memberof ProductsSteps
+   */
   async validateProductspageNavigation() {
     await expect(this.productsPage.productsPageTitle).toContainText('Products');
   }

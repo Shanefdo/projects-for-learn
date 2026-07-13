@@ -8,14 +8,26 @@ export class ContactSteps {
         this.contactPage = new ContactPage(page);
     }
 
+    /**
+     * Navigates to the contact page
+     * @returns {Promise<void>}
+     */
     async navigateToTheContactPage() {
         await this.contactPage.contactPageNavigation.click();
     }
 
-    async validateContactPageNavigation(){
+    /**
+     * Validates the contact page navigation
+     * @returns {Promise<void>}
+     */
+    async validateContactPageNavigation() {
         await expect(this.contactPage.contactPageHeading).toHaveText("Questions or comments? Get in touch and we'll be happy to help.");
     }
 
+    /**
+     * Validates the syntax error on the contact page
+     * @returns {Promise<void>}
+     */
     async validateSyntaxError() {
         await expect(this.contactPage.contactPageError).toHaveText("Email is invalid");
     }
