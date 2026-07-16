@@ -13,7 +13,7 @@ import { ENV } from './tests/utils/env';
  * See https://playwright.dev/docs/test-configuration.
  */
 
-const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3000'; // Falls back to local if env is empty
+//const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3000'; // Falls back to local if env is empty
 
 export default defineConfig({
   testDir: './tests',
@@ -79,10 +79,10 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: {
-    //command: 'npm run start',
-    command: 'yarn start',
-    url: baseUrl,
-    reuseExistingServer: !process.env.CI,
-  },
+  // webServer: {
+  //   //command: 'npm run start',
+  //   command: 'yarn start',
+  //   url: baseUrl,
+  //   reuseExistingServer: !process.env.CI,
+  // },
 });
