@@ -12,6 +12,9 @@ import { ENV } from './tests/utils/env';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3000'; // Falls back to local if env is empty
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
