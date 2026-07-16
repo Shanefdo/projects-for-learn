@@ -8,10 +8,13 @@
     "@types/node": "^25.2.0"
   },
   "scripts": {
-     "test:playwright-smoke": "npx playwright test -j 1 --project=Chromium",
-     "test:playwright": "npx playwright test -j 4",
-     "test:playwright-regression-ui": "npx playwright test -j 1 --project=Chromium --ui",
-     "test:playwright-headed": "npx playwright test -j 1 --headed --project=Chromium"
+    "test:playwright-smoke": "npx playwright test -j 1 --project=Chromium",
+    "test:playwright": "npx playwright test -j 4",
+    "test:playwright-regression-ui": "npx playwright test -j 1 --project=Chromium --ui",
+    "test:playwright-headed": "npx playwright test -j 1 --headed --project=Chromium",
+    "start": "yarn start",
+    "build": "yarn build",
+    "preview": "yarn preview"
   },
   "dependencies": {
     "dotenv": "^17.3.1"
