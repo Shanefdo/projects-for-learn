@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      BASE_URL: ${{ secrets.BASE_URL }} # Get the URL from GItHub secrets
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
