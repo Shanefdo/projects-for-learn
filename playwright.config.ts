@@ -82,7 +82,7 @@ export default defineConfig({
   webServer: {
     //command: 'npm run start',
     command: 'yarn start',
-    url: ENV.baseUrl,
+    url: baseUrl,
     reuseExistingServer: !process.env.CI,
   },
 });
