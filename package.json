@@ -9,7 +9,8 @@
   },
   "scripts": {
      "test:playwright-smoke": "npx playwright test -j 1 --project=Chromium",
-     "test:playwright": "npx playwright test -j 4"
+     "test:playwright-regression-ui": "npx playwright test -j 1 --project=Chromium --ui",
+     "test:playwright-headed": "npx playwright test -j 1 --headed --project=Chromium"
   },
   "dependencies": {
     "dotenv": "^17.3.1"

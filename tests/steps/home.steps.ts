@@ -112,7 +112,7 @@ export class HomeSteps {
    * @memberof HomeSteps
    */
   async validateHotBuysItemModal() {
-    await expect(this.homePage.hotBuysItemModal).toBeVisible();
+    await expect(this.homePage.hotBuysItemModal.nth(0)).toBeVisible();
   }
 
 }

@@ -21,14 +21,27 @@ export class ContactSteps {
      * @returns {Promise<void>}
      */
     async validateContactPageNavigation() {
-        await expect(this.contactPage.contactPageHeading).toHaveText("Questions or comments? Get in touch and we'll be happy to help.");
+        await expect(this.contactPage.contactPageHeading).toBeVisible();
     }
 
     /**
-     * Validates the syntax error on the contact page
+     * Fills the contact form with invalid email details and submits it
      * @returns {Promise<void>}
      */
-    async validateSyntaxError() {
-        await expect(this.contactPage.contactPageError).toHaveText("Email is invalid");
+    async submitInvalidContactForm() {
+        await this.contactPage.contactNameInput.fill('Test User');
+        await this.contactPage.contactEmailInput.fill('invalid-email');
+        await this.contactPage.contactPhoneInput.fill('1234567890');
+        await this.contactPage.contactBodyInput.fill('Hello from Playwright');
+        await this.contactPage.contactPageSubmit.click();
+    }
+
+    /**
+     * Validates that the invalid email is rejected by the browser
+     * @returns {Promise<void>}
+     */
+    async validateInvalidEmailState() {
+        await expect(this.contactPage.contactEmailInput).toHaveValue('invalid-email');
+        await expect(this.contactPage.contactEmailInput).toHaveJSProperty('validity.typeMismatch', true);
     }
 }

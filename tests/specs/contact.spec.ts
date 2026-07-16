@@ -4,13 +4,22 @@ import { ContactSteps } from "../steps/contact.steps";
 
 test.describe('Validate contact page test', () => {
 
-    test.only('Validate contact page button error', async ({ page }) => {
+    test('Validate contact page navigation', async ({ page }) => {
         const contactStep = new ContactSteps(page);
         const homeSteps = new HomeSteps(page);
 
         await homeSteps.navigationToHome();
         await contactStep.navigateToTheContactPage();
         await contactStep.validateContactPageNavigation();
-        await contactStep.validateSyntaxError();
-    })
+    });
+
+    test('Validate contact form validation error handling', async ({ page }) => {
+        const contactStep = new ContactSteps(page);
+        const homeSteps = new HomeSteps(page);
+
+        await homeSteps.navigationToHome();
+        await contactStep.navigateToTheContactPage();
+        await contactStep.submitInvalidContactForm();
+        await contactStep.validateInvalidEmailState();
+    });
 })

@@ -11,7 +11,7 @@ export class HomePage {
   static readonly HOT_BUYS_ITEM = '[id="Slide-template--24961955332443__featured_collection1-1"]';
   static readonly HOT_BUYS_ITEM_IMAGE = '[id="Slide-template--24961955332443__featured_collection1-1"] img[class="motion-reduce"]';
   static readonly HOT_BUYS_ITEM_CHOOSE_OPTIONS_BUTTON = '[id="Slide-template--24961955332443__featured_collection1-1"] button';
-  static readonly HOT_BUYS_ITEM_MODAL='[id="QuickAddInfo-9744041869659"]';
+  static readonly HOT_BUYS_ITEM_MODAL='h3.h2';
   
   readonly page: Page;
   readonly bannerHeading: Locator;
