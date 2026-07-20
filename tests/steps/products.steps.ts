@@ -13,7 +13,7 @@ export class ProductsSteps {
    * @returns {Promise<void>}
    * @memberof ProductsSteps
    */
-  async navigateToTheProductsPage() {
+  async navigateToTheProductsPage(): Promise<void> {
     await this.productsPage.productsPageNavigation.click();
   }
 
@@ -22,7 +22,7 @@ export class ProductsSteps {
    * @returns {Promise<void>}
    * @memberof ProductsSteps
    */
-  async validateProductspageNavigation() {
+  async validateProductspageNavigation(): Promise<void> {
     await expect(this.productsPage.productsPageTitle).toContainText('Products');
   }
 }

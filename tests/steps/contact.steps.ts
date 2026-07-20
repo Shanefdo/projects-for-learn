@@ -12,7 +12,7 @@ export class ContactSteps {
      * Navigates to the contact page
      * @returns {Promise<void>}
      */
-    async navigateToTheContactPage() {
+    async navigateToTheContactPage(): Promise<void> {
         await this.contactPage.contactPageNavigation.click();
     }
 
@@ -20,7 +20,7 @@ export class ContactSteps {
      * Validates the contact page navigation
      * @returns {Promise<void>}
      */
-    async validateContactPageNavigation() {
+    async validateContactPageNavigation(): Promise<void> {
         await expect(this.contactPage.contactPageHeading).toBeVisible();
     }
 
@@ -28,7 +28,7 @@ export class ContactSteps {
      * Fills the contact form with invalid email details and submits it
      * @returns {Promise<void>}
      */
-    async submitInvalidContactForm() {
+    async submitInvalidContactForm(): Promise<void> {
         await this.contactPage.contactNameInput.fill('Test User');
         await this.contactPage.contactEmailInput.fill('invalid-email');
         await this.contactPage.contactPhoneInput.fill('1234567890');
@@ -40,7 +40,7 @@ export class ContactSteps {
      * Validates that the invalid email is rejected by the browser
      * @returns {Promise<void>}
      */
-    async validateInvalidEmailState() {
+    async validateInvalidEmailState(): Promise<void> {
         await expect(this.contactPage.contactEmailInput).toHaveValue('invalid-email');
         await expect(this.contactPage.contactEmailInput).toHaveJSProperty('validity.typeMismatch', true);
     }

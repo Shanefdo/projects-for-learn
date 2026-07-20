@@ -74,7 +74,7 @@ export class HomeSteps {
    * @returns {Promise<void>}
    * @memberof HomeSteps
    */
-  async validateHotBuysHeading() {
+  async validateHotBuysHeading(): Promise<void> {
     await expect(this.homePage.hotBuysHeading).toBeVisible();
   }
 
@@ -83,7 +83,7 @@ export class HomeSteps {
    * @returns {Promise<void>}
    * @memberof HomeSteps
    */
-  async validateHotBuysItem() {
+  async validateHotBuysItem(): Promise<void> {
     await expect(this.homePage.hotBuysItem).toBeVisible();
   }
 
@@ -92,7 +92,7 @@ export class HomeSteps {
    * @returns {Promise<void>}
    * @memberof HomeSteps
    */
-  async validateHotBuysItemImage() {
+  async validateHotBuysItemImage(): Promise<void> {
     await expect(this.homePage.hotBuysItemImage).toBeVisible();
   }
 
@@ -101,7 +101,7 @@ export class HomeSteps {
    * @returns {Promise<void>}
    * @memberof HomeSteps
    */
-  async validateHotBuysItemChooseOptionsButton() {
+  async validateHotBuysItemChooseOptionsButton(): Promise<void> {
     await expect(this.homePage.hotBuysItemChooseOptionsButton).toBeVisible();
     await this.homePage.hotBuysItemChooseOptionsButton.click();
   }
@@ -111,7 +111,7 @@ export class HomeSteps {
    * @returns {Promise<void>}
    * @memberof HomeSteps
    */
-  async validateHotBuysItemModal() {
+  async validateHotBuysItemModal(): Promise<void> {
     await expect(this.homePage.hotBuysItemModal.nth(0)).toBeVisible();
   }
 
