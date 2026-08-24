@@ -1,28 +1,69 @@
+# name: Playwright Tests
+# on:
+#   push:
+#     branches: [ main, master ]
+#   pull_request:
+#     branches: [ main, master ]
+# jobs:
+#   test:
+#     timeout-minutes: 60
+#     runs-on: ubuntu-latest
+#     env:
+#       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+#       BASE_URL: ${{ secrets.BASE_URL }} # Get the URL from GItHub secrets
+#     steps:
+#     - uses: actions/checkout@v4
+#     - uses: actions/setup-node@v4
+#       with:
+#         node-version: 24 # <-- Changed from lts/* to 24
+#     - name: Install dependencies
+#       run: npm install -g yarn && yarn
+#     - name: Install Playwright Browsers
+#       run: yarn playwright install --with-deps
+#     - name: Run Playwright tests
+#       run: yarn playwright test
+#     - uses: actions/upload-artifact@v4
+#       if: ${{ !cancelled() }}
+#       with:
+#         name: playwright-report
+#         path: playwright-report/
+#         retention-days: 30
+
 name: Playwright Tests
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-      BASE_URL: ${{ secrets.BASE_URL }} # Get the URL from GItHub secrets
+      BASE_URL: ${{ secrets.BASE_URL }} # Get the URL from GitHub secrets
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: 24 # <-- Changed from lts/* to 24
-    - name: Install dependencies
-      run: npm install -g yarn && yarn
-    - name: Install Playwright Browsers
-      run: yarn playwright install --with-deps
+        node-version: 22 # Recommended stable LTS for GitHub Actions & Playwright
+
+    - name: Corepack Enable & Install Dependencies
+      run: |
+        corepack enable
+        yarn install --frozen-lockfile
+
+    - name: Install Playwright Browsers with System Dependencies
+      run: npx playwright install --with-deps
+
     - name: Run Playwright tests
       run: yarn playwright test
-    - uses: actions/upload-artifact@v4
+
+    - name: Upload Playwright Report
+      uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
         name: playwright-report
