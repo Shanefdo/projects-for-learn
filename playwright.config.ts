@@ -1,3 +1,5 @@
+process.env.DOTENV_CONFIG_QUIET = 'true';
+
 import { defineConfig, devices } from '@playwright/test';
 import { ENV } from './tests/utils/env';
 
@@ -24,9 +26,14 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  //reporter: 'html',
+  //reporter: 'list',
+  reporter: [['list', { printFailuresInline: true }]],
+  //reporter: 'dot',
+  //reporter: 'line',
+  
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -47,15 +54,16 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // Not running on webkit as it's not supported onmy local Mac machine. Uncomment the below code to run on webkit if you have a Mac machine.
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
@@ -82,6 +90,7 @@ export default defineConfig({
   // webServer: {
   //   //command: 'npm run start',
   //   command: 'yarn start',
+
   //   url: baseUrl,
   //   reuseExistingServer: !process.env.CI,
   // },

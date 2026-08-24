@@ -34,6 +34,7 @@ export class ContactSteps {
         await this.contactPage.contactPhoneInput.fill('1234567890');
         await this.contactPage.contactBodyInput.fill('Hello from Playwright');
         await this.contactPage.contactPageSubmit.click();
+        await this.contactPage.page.waitForTimeout(1000); // Wait for 1 second to allow the browser to process the invalid email
     }
 
     /**
