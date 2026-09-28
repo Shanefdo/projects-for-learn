@@ -10,7 +10,7 @@ test.describe('Validate Home page tests', () => {
 
     await homeSteps.navigationToHome();
     //await homeSteps.validateCookieConsentBannerTitle();
-    await homeSteps.declineCookieConsent();
+    //await homeSteps.declineCookieConsent();
     await homeSteps.validateHomePageBannerHeading();
     await homeSteps.validateAnnouncementMessage();
 
