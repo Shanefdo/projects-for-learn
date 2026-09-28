@@ -1,7 +1,5 @@
 import { test } from "@playwright/test";
 import { HomeSteps } from "../steps/home.steps";
-import { ENV } from "../utils/env";
-import { ProductsSteps } from "../steps/products.steps";
 
 test.describe('Validate Home page tests', () => {
 
@@ -9,8 +7,6 @@ test.describe('Validate Home page tests', () => {
     const homeSteps = new HomeSteps(page);
 
     await homeSteps.navigationToHome();
-    //await homeSteps.validateCookieConsentBannerTitle();
-    //await homeSteps.declineCookieConsent();
     await homeSteps.validateHomePageBannerHeading();
     await homeSteps.validateAnnouncementMessage();
 
