@@ -1,7 +1,7 @@
 import { Page, Locator } from "@playwright/test";
 
 export class HomePage {
-  static readonly BANNER_HEADING = '.banner__heading';
+  static readonly BANNER_HEADING = '.banner__text';
   static readonly COOKIE_CONSENT_BANNER_TITLE = '[id="shopify-pc__banner__body-title"]';
   static readonly COOKIE_CONSENT_DECLINE = '[id="shopify-pc__banner__btn-decline"]';
   static readonly SLIDER_BUTTON_PREVIOUS = '.slider-button--prev';

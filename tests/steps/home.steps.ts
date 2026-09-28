@@ -51,9 +51,9 @@ export class HomeSteps {
    */
   async validateAnnouncementMessage() {
     await this.homePage.sliderButtonNext.click();
-    await expect(this.homePage.sliderAnnuouncementMessage.nth(1)).toHaveText('Free UK Mainland Delivery')
+    await expect(this.homePage.sliderAnnuouncementMessage.nth(1)).toHaveText('Express Dispatch')
     await this.homePage.sliderButtonPrevious.click();
-    await expect(this.homePage.sliderAnnuouncementMessage.nth(0)).toHaveText('Welcome to Future Legends Cricket Shop')
+    await expect(this.homePage.sliderAnnuouncementMessage.nth(0)).toHaveText('Free UK delivery')
 
     // const sliderLocator = this.homePage.sliderAnnuouncementMessage;
     // const message = (await sliderLocator.innerText()).trim();
