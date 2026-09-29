@@ -15,7 +15,6 @@ test.describe('Validate About Us page tests', () => {
         await homeSteps.navigationToHome();
 
         await aboutUsSteps.navigationToAboutUs();
-
         //Page title needs investigate to be fixed, so skipping the validation for now
         //await aboutUsSteps.validateAboutUsPageTitle();
         await aboutUsSteps.validateAboutUsPageContent();
