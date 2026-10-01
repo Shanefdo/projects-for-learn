@@ -24,8 +24,7 @@ export class AboutUsSteps {
      * @memberof AboutUsSteps
      */
     async validateAboutUsPageTitle() {
-        const title = await this.aboutUsPage.page.title();
-        await expect(title).toContain('Future Legends Cricket Shop');
+        await expect(this.aboutUsPage.page).toHaveTitle('About Us – Future Legends Cricket Shop');
     }
 
     /**
