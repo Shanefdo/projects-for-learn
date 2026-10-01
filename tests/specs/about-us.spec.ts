@@ -15,33 +15,13 @@ test.describe('Validate About Us page tests', () => {
         await homeSteps.navigationToHome();
 
         await aboutUsSteps.navigationToAboutUs();
-        //Page title needs investigate to be fixed, so skipping the validation for now
-        //await aboutUsSteps.validateAboutUsPageTitle();
+        await aboutUsSteps.validateAboutUsPageTitle();
         await aboutUsSteps.validateAboutUsPageContent();
         await aboutUsSteps.validateAboutUsPageImage();
         await aboutUsSteps.validateAboutUsPageShopNowButton();
 
         await productsSteps.navigateToTheProductsPage();
         await productsSteps.validateProductspageNavigation();
-
-
-
-        // test.step('Navigate to Home page', async () => {
-        //     await homeSteps.navigationToHome();
-        // });
-
-        // test.step('Validate About Us page navigation', async () => {
-        //     await aboutUsSteps.navigationToAboutUs();
-        //     await aboutUsSteps.validateAboutUsPageTitle();
-        //     await aboutUsSteps.validateAboutUsPageContent();
-        //     await aboutUsSteps.validateAboutUsPageImage();
-        //     await aboutUsSteps.validateAboutUsPageShopNowButton();
-        // });
-
-        // test.step('Validate Products page navigation', async () => {
-        //     await productsSteps.navigateToTheProductsPage();
-        //     await productsSteps.validateProductspageNavigation();
-        // });
     });
 
 });
