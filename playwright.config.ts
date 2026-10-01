@@ -45,6 +45,8 @@ export default defineConfig({
     headless: true,
     screenshot: 'only-on-failure',
     trace: 'on-first-retry',
+    navigationTimeout: 15000,
+    actionTimeout: 10000,
   },
 
   /* Configure projects for major browsers */
@@ -59,11 +61,10 @@ export default defineConfig({
     //   use: { ...devices['Desktop Firefox'] },
     // },
 
-    // Not running on webkit as it's not supported onmy local Mac machine. Uncomment the below code to run on webkit if you have a Mac machine.
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     /* Test against mobile viewports. */
     // {
