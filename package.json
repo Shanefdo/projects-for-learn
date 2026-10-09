@@ -8,11 +8,12 @@
     "@types/node": "^25.9.8"
   },
   "scripts": {
-    "test:playwright-smoke": "npx playwright test -j 1 --project=Chromium",
+    "test:playwright-only-chrome": "npx playwright test -j 1 --project=Chromium",
     "test:playwright-all": "npx playwright test -j 4",
     "test:playwright": "DOTENV_CONFIG_QUIET=true npx playwright test -j 4",
     "test:playwright-regression-ui": "npx playwright test -j 1 --project=Chromium --ui",
     "test:playwright-headed": "npx playwright test -j 1 --headed --project=Chromium",
+    "test:playwright-smoke": "npx playwright test --grep @smoke -j 4",
     "start": "yarn start",
     "build": "yarn build",
     "preview": "yarn preview"
