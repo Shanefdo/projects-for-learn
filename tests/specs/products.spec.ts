@@ -8,5 +8,6 @@ test.describe('Validate products page tests', () => {
     await homeSteps.navigationToHome();
     await productsSteps.navigateToTheProductsPage();
     await productsSteps.validateProductspageNavigation();
+    await productsSteps.validateProductItem();
   });
 });
