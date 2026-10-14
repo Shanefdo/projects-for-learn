@@ -20,4 +20,4 @@ test.describe('Validate contact page test', () => {
         await contactSteps.submitInvalidContactForm();
         await contactSteps.validateInvalidEmailState();
     });
-})
+});
