@@ -25,4 +25,15 @@ export class ProductsSteps {
   async validateProductspageNavigation(): Promise<void> {
     await expect(this.productsPage.productsPageTitle).toContainText('Products');
   }
+
+  /**
+   * Validates a product item on the products page
+   * @returns {Promise<void>}
+   * @memberof ProductsSteps
+   */
+  async validateProductItem(): Promise<void> {
+    await expect(this.productsPage.productsPageItem).toBeVisible();
+    await expect(this.productsPage.productsPageItemImage).toBeVisible();
+  }
+
 }
