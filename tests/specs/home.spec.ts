@@ -18,5 +18,5 @@ test.describe('Validate Home page tests', () => {
       await homeSteps.validateHotBuysItemChooseOptionsButton();
       await homeSteps.validateHotBuysItemModal();
     })
-  })
-})
+  });
+});
