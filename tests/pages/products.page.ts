@@ -10,6 +10,9 @@ export class ProductsPage {
   readonly productsPageTitle: Locator;
   readonly productsPageItem: Locator;
   readonly productsPageItemImage: Locator;
+  readonly productsPageItemIncrementButton: Locator;
+  readonly productsPageItemDecrementButton: Locator;
+  readonly productsPageItemCount: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,5 +20,8 @@ export class ProductsPage {
     this.productsPageTitle = page.locator(ProductsPage.PRODUCTS_PAGE_TITLE);
     this.productsPageItem = page.locator('#product-grid').locator('li').nth(0);
     this.productsPageItemImage = page.locator('.card__media').first();
+    this.productsPageItemIncrementButton = page.locator('button').filter({ hasText: 'Increase quantity for Default Title' }).first();
+    this.productsPageItemDecrementButton = page.locator('button').filter({ hasText: 'Decrease quantity for Default Title' }).first();
+    this.productsPageItemCount = page.locator('.quantity__input').first();
   }
 }
