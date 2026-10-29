@@ -17,6 +17,20 @@ import { ENV } from './tests/utils/env';
 
 //const baseUrl = process.env.BASE_URL || 'http://127.0.0.1:3000'; // Falls back to local if env is empty
 
+/* Configure projects for ReportPortal integration */
+const RPconfig = {
+  apiKey: process.env.PLAYWRIGHT_REPORT_PORTAL_API_KEY,
+  endpoint: 'http://localhost:8080/api/v1', // Your ReportPortal API endpoint
+  project: 'flc-playwright-project',          // The project name created in ReportPortal
+  launch: 'Playwright Test Launch',      // Name of the launch displayed in the dashboard
+  description: 'Automated test run using Playwright',
+  attributes: [
+    { key: 'environment', value: 'staging' },
+    { value: 'smoke' }
+  ],
+  mode: 'DEFAULT', // Use 'DEBUG' if you are troubleshooting reporting
+};
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -30,10 +44,13 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //reporter: 'html',
   //reporter: 'list',
-  reporter: [['list', { printFailuresInline: true }]],
+  //reporter: [['list', { printFailuresInline: true }]],
+  reporter: [
+    ['@reportportal/agent-js-playwright', RPconfig]
+  ],
   //reporter: 'dot',
   //reporter: 'line',
-  
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */

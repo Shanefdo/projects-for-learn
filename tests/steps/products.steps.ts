@@ -36,4 +36,36 @@ export class ProductsSteps {
     await expect(this.productsPage.productsPageItemImage).toBeVisible();
   }
 
+  /**
+   * Validates the product item increment button
+   * @returns {Promise<void>}
+   * @memberof ProductsSteps
+   */
+  async validateProductItemIncrementButton(): Promise<void> {
+    await expect(this.productsPage.productsPageItemIncrementButton).toBeVisible();
+  }
+
+  /**
+   * Validates the product item decrement button
+   * @returns {Promise<void>}
+   * @memberof ProductsSteps
+   */
+  async validateProductItemDecrementButton(): Promise<void> {
+    await expect(this.productsPage.productsPageItemDecrementButton).toBeVisible();
+  }
+
+  /**
+   * Validates the product item count
+   * @returns {Promise<void>}
+   * @memberof ProductsSteps
+   */
+  async validateProductItemCount(): Promise<void> {
+    await expect(this.productsPage.productsPageItemCount).toBeVisible();
+    await expect(this.productsPage.productsPageItemCount).toHaveValue("0");
+    await this.productsPage.productsPageItemIncrementButton.click();
+    await expect(this.productsPage.productsPageItemCount).toHaveValue("1");
+    await this.productsPage.productsPageItemDecrementButton.click();
+    await expect(this.productsPage.productsPageItemCount).toHaveValue("0");
+  }
+
 }

@@ -5,6 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
+    "@reportportal/agent-js-playwright": "^5.5.0",
     "@types/node": "^25.9.8"
   },
   "scripts": {
